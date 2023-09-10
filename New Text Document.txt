@@ -1,0 +1,34 @@
+use codefirst;
+select *from  Students;
+
+create procedure spSelectStudent
+as 
+begin
+select *from Students
+end
+spSelectStudent
+
+create procedure spSelectName
+as 
+begin
+select Roll, Name from Students 
+end
+spSelectName
+
+
+to modify 
+----------------------------
+alter procedure existing _procedure_name
+ as
+begin
+    //modifie parameters
+end
+
+
+to delete /drop
+------------------------
+drop procedure existing_procedure_name
+go 
+
+use database codefirst;
+select *from codefirst.INFORMATION_SCHEMA.ROUTINES where ROUTINE_TYPE ='procedure';

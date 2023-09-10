@@ -1,0 +1,26 @@
+DESKTOP-13CSBRG\MSSQLSERVER01
+
+create database dbCourse;
+
+use dbCourse;
+create table Courses(
+CourseID int not null primary key,
+Cname varchar(150) not null,
+CourseCatagories varchar(150) not null,
+);
+
+use db_student;
+create table students(
+roll int not null primary key,
+fname varchar(150) not null,
+lname varchar(150) not null,
+dob date not null,
+email varchar (40) not null,
+faculty varchar(20)
+);
+
+install-Package Microsoft.EntityFrameworkCore.SqlServer
+install-Package Microsoft.EntityFrameworkCore.Tools
+install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+Scaffold-DbContext "Server=DESKTOP-13CSBRG\MSSQLSERVER01;Database=db_student;Trusted_Connection=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+builder.Services.AddDbContext<DbStudentContext>(options => options.UseSqlServer(@"server = DESKTOP - 13CSBRG\MSSQLSERVER01; Database = db_student; Trusted_Connection = True"));
